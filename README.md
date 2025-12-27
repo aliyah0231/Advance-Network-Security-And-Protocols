@@ -128,7 +128,7 @@ Percobaan IP Spoofing dilakukan menggunakan beberapa metode berikut:
 ## Dokumentasi dan Laporan
 
 - 📄 **Laporan Praktikum (PDF)**  
-  👉 [Lihat Laporan](ANALISIS_ARP_SPOOFING_TUGAS_ADVANCE_NETWORK_SECURITY_AND_PROTOCOLS.pdf)
+  👉 [Lihat Laporan](Laporan_ARP_Spoofing_Advance_Network_Security_And_Protocols.pdf)
 
 - 📸 **Dokumentasi Gambar Praktikum**  
   👉 [Lihat Dokumentasi](Gambar_Dokumentasi)
