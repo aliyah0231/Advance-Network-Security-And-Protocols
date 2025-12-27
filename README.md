@@ -136,19 +136,6 @@ Percobaan IP Spoofing dilakukan menggunakan beberapa metode berikut:
 > Pastikan file laporan dan folder dokumentasi sudah di-push ke repository agar link dapat diakses dengan benar.
 
 ---
-
-## Struktur Repository
-├── laporan/
-│ └── ANALISIS_ARP_IP_SPOOFING.pdf
-├── screenshots/
-│ ├── arp_spoofing/
-│ ├── ip_spoofing/
-│ └── etherape/
-└── README.md
-
-
----
-
 ## Kesimpulan
 Praktikum ini membuktikan bahwa jaringan yang tidak dilengkapi mekanisme keamanan yang memadai sangat rentan terhadap serangan spoofing. **ARP Spoofing** dan **IP Spoofing** dapat digunakan untuk melakukan penyadapan, session hijacking, hingga *denial of service*. Oleh karena itu, penggunaan protokol aman, filtering paket, serta sistem deteksi intrusi merupakan langkah penting dalam menjaga keamanan jaringan.
 
