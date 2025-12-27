@@ -1,153 +1,154 @@
 # Advance-Network-Security-And-Protocols
-Advanced Network Security – ARP & IP Spoofing Analysis
 
-Repository ini berisi laporan dan dokumentasi praktikum mata kuliah Advanced Network Security and Protocols yang membahas berbagai teknik serangan jaringan, meliputi ARP Spoofing, Sniffing, Session Hijacking, dan IP Spoofing, beserta analisis dampak dan mekanisme penanggulangannya.
+## Advanced Network Security – ARP & IP Spoofing Analysis
 
-👩‍🎓 Penyusun
+Repository ini berisi laporan dan dokumentasi praktikum mata kuliah **Advanced Network Security and Protocols** yang membahas berbagai teknik serangan jaringan, meliputi **ARP Spoofing, Sniffing, Session Hijacking, dan IP Spoofing**, beserta analisis dampak serta mekanisme penanggulangannya.
 
-Nur Aliyah Amaliani – 105841106923
+---
 
-Sukma Wardia Ningsih – 105841112723
+## KELOMPOK
 
-Nur Qamariah Yunus – 105841104323
+- **Nur Aliyah Amaliani** – 105841106923  
+- **Sukma Wardia Ningsih** – 105841112723  
+- **Nur Qamariah Yunus** – 105841104323  
 
-Program Studi Informatika
-Fakultas Teknik
-Universitas Muhammadiyah Makassar
-Tahun 2025
+**Program Studi Informatika**  
+Fakultas Teknik  
+Universitas Muhammadiyah Makassar  
+**Tahun 2025**
 
-📌 Tujuan Praktikum
+---
+
+## Tujuan Praktikum
 
 Praktikum ini bertujuan untuk:
 
-Memahami konsep dan mekanisme kerja serangan jaringan berbasis spoofing
+- Memahami konsep dan mekanisme kerja serangan jaringan berbasis spoofing  
+- Menganalisis kerentanan layanan jaringan terhadap **ARP Spoofing** dan **IP Spoofing**  
+- Membandingkan tingkat keamanan layanan **Telnet** dan **SSH**  
+- Mengamati dampak serangan terhadap trafik jaringan menggunakan tool monitoring  
+- Mengetahui metode mitigasi serangan **ARP Spoofing** dan **IP Spoofing**
 
-Menganalisis kerentanan layanan jaringan terhadap ARP dan IP Spoofing
+---
 
-Membandingkan layanan Telnet dan SSH dari sisi keamanan
+## Lingkup Praktikum
 
-Mengamati dampak serangan terhadap trafik jaringan menggunakan tool monitoring
+### 1. ARP Spoofing dan Session Hijacking
 
-Mengetahui metode mitigasi serangan ARP Spoofing dan IP Spoofing
+Pada bagian ini dilakukan beberapa tahapan berikut:
 
-🧪 Lingkup Praktikum
-1. ARP Spoofing & Session Hijacking
+- Pembuatan topologi jaringan (**Client – Server – Attacker**)  
+- Instalasi dan pengujian layanan **Telnet** dan **SSH**  
+- Pencatatan **MAC Address** sebelum dan sesudah ARP Spoofing  
+- Serangan **Man in The Middle (MITM)** menggunakan tool **hunt**  
+- Observasi **Session Hijacking** pada:
+  - **Telnet** (berhasil)
+  - **SSH** (tidak berhasil karena enkripsi)
+- Analisis koneksi menggunakan perintah `netstat -nat`
 
-Pada bagian ini dilakukan:
+#### Hasil Utama
+- ARP Spoofing berhasil memanipulasi tabel ARP pada client dan server  
+- Session hijacking berhasil pada Telnet karena komunikasi tidak terenkripsi  
+- Session hijacking gagal pada SSH karena menggunakan enkripsi dan autentikasi  
 
-Pembuatan topologi jaringan (Client – Server – Attacker)
+---
 
-Instalasi dan pengujian layanan Telnet dan SSH
-
-Pencatatan MAC Address sebelum dan sesudah ARP Spoofing
-
-Serangan Man in The Middle (MITM) menggunakan tool hunt
-
-Observasi Session Hijacking pada:
-
-Telnet (berhasil)
-
-SSH (tidak berhasil karena enkripsi)
-
-Analisis koneksi menggunakan netstat -nat
-
-📌 Hasil utama:
-
-ARP Spoofing berhasil memanipulasi tabel ARP client dan server
-
-Session hijacking berhasil pada Telnet karena komunikasi tidak terenkripsi
-
-Session hijacking gagal pada SSH karena penggunaan enkripsi dan autentikasi
-
-2. IP Spoofing
+### 2. IP Spoofing
 
 Percobaan IP Spoofing dilakukan menggunakan beberapa metode berikut:
 
-a. Ping of Death (PoD) Spoofing
+#### a. Ping of Death (PoD) Spoofing
+- Mengirim paket ICMP dengan alamat IP sumber palsu  
+- Target membalas paket ke alamat IP palsu  
 
-Mengirim paket ICMP dengan IP sumber palsu
+#### b. SYN Flood
+- Mengirim paket TCP SYN secara berulang tanpa menyelesaikan handshake  
+- Menguras resource pada sistem target  
 
-Target membalas ke alamat IP palsu
+#### c. LAND Attack
+- Alamat IP sumber dan tujuan dibuat sama  
+- Target mengirim paket ke dirinya sendiri secara terus-menerus  
 
-b. SYN Flood
+#### d. Teardrop / Fragmentation Spoofing
+- Manipulasi fragmentasi paket IP yang tidak normal  
+- Berpotensi menyebabkan crash atau buffer overflow  
 
-Mengirim paket TCP SYN berulang tanpa menyelesaikan handshake
+#### Hasil Utama
+- IP Spoofing berhasil dilakukan pada berbagai metode  
+- Target mengalami peningkatan beban trafik dan pemrosesan paket abnormal  
 
-Menguras resource target
+---
 
-c. LAND Attack
+## Tools yang Digunakan
 
-IP sumber dan tujuan dibuat sama
+- **Wireshark** – Analisis paket jaringan  
+- **Hunt** – ARP Spoofing dan Session Hijacking  
+- **EtherApe** – Visualisasi trafik jaringan  
+- **Netcat** – Simulasi backdoor  
+- **Nmap** – Port scanning  
+- **Telnet** dan **SSH** – Uji layanan client-server  
 
-Target mengirim paket ke dirinya sendiri secara terus-menerus
+---
 
-d. Teardrop / Fragmentation Spoofing
+## Analisis Keamanan
 
-Manipulasi fragmentasi paket IP
+### Perbandingan Telnet dan SSH
 
-Berpotensi menyebabkan crash atau buffer overflow
+| Aspek | Telnet | SSH |
+|------|--------|-----|
+| Enkripsi | Tidak ada | Ada |
+| Tingkat Keamanan | Rendah | Tinggi |
+| Session Hijacking | Berhasil | Gagal |
 
-📌 Hasil utama:
+### Transport Layer yang Digunakan
 
-IP Spoofing berhasil dilakukan pada berbagai metode
+- **ICMP**  
+  Digunakan pada serangan Ping of Death karena bersifat *connectionless* dan mudah dipalsukan.
 
-Target mengalami peningkatan beban trafik dan pemrosesan paket abnormal
+- **TCP**  
+  Digunakan pada SYN Flood dan LAND Attack karena dapat mengeksploitasi proses *three-way handshake*.
 
-🔍 Tools yang Digunakan
+---
 
-Wireshark – Analisis paket jaringan
+## Mitigasi Serangan
 
-Hunt – ARP Spoofing & Session Hijacking
+### Penanggulangan ARP Spoofing
+- Static ARP  
+- Dynamic ARP Inspection (DAI)  
+- Penggunaan protokol terenkripsi seperti **SSH**  
 
-EtherApe – Visualisasi trafik jaringan
+### Penanggulangan IP Spoofing
+- Ingress dan Egress Filtering  
+- Firewall  
+- IDS/IPS  
+- TCP SYN Cookies  
 
-Netcat – Simulasi backdoor
+---
 
-Nmap – Port scanning
+## Dokumentasi dan Laporan
 
-Telnet & SSH – Uji layanan client-server
+- 📄 **Laporan Praktikum (PDF)**  
+  👉 [Lihat Laporan](ANALISIS_ARP_SPOOFING_TUGAS_ADVANCE_NETWORK_SECURITY_AND_PROTOCOLS.pdf)
 
-🛡️ Analisis Keamanan
-Perbandingan Telnet vs SSH
-Aspek	Telnet	SSH
-Enkripsi	Tidak ada	Ada
-Keamanan	Rendah	Tinggi
-Session Hijacking	Berhasil	Gagal
-Transport Layer yang Digunakan
+- 📸 **Dokumentasi Gambar Praktikum**  
+  👉 [Lihat Dokumentasi](Gambar_Dokumentasi)
 
-ICMP: Digunakan pada PoD karena bersifat connectionless dan mudah dipalsukan
+> Pastikan file laporan dan folder dokumentasi sudah di-push ke repository agar link dapat diakses dengan benar.
 
-TCP: Digunakan pada SYN Flood dan LAND Attack karena dapat mengeksploitasi proses handshake
+---
 
-🔐 Mitigasi Serangan
-Penanggulangan ARP Spoofing
-
-Static ARP
-
-Dynamic ARP Inspection (DAI)
-
-Penggunaan protokol terenkripsi (SSH)
-
-Penanggulangan IP Spoofing
-
-Ingress & Egress Filtering
-
-Firewall
-
-IDS/IPS
-
-TCP SYN Cookies
-
-📂 Struktur Repository (Contoh)
-.
+## Struktur Repository
 ├── laporan/
-│   └── ANALISIS_ARP_IP_SPOOFING.pdf
+│ └── ANALISIS_ARP_IP_SPOOFING.pdf
 ├── screenshots/
-│   ├── arp_spoofing/
-│   ├── ip_spoofing/
-│   └── etherape/
+│ ├── arp_spoofing/
+│ ├── ip_spoofing/
+│ └── etherape/
 └── README.md
 
-📄 Kesimpulan
 
-Praktikum ini membuktikan bahwa jaringan tanpa mekanisme keamanan yang memadai sangat rentan terhadap serangan spoofing. ARP Spoofing dan IP Spoofing dapat digunakan untuk melakukan penyadapan, hijacking, hingga denial of service. Penggunaan protokol aman, filtering paket, dan sistem deteksi intrusi menjadi langkah penting dalam menjaga keamanan jaringan.
+---
+
+## Kesimpulan
+Praktikum ini membuktikan bahwa jaringan yang tidak dilengkapi mekanisme keamanan yang memadai sangat rentan terhadap serangan spoofing. **ARP Spoofing** dan **IP Spoofing** dapat digunakan untuk melakukan penyadapan, session hijacking, hingga *denial of service*. Oleh karena itu, penggunaan protokol aman, filtering paket, serta sistem deteksi intrusi merupakan langkah penting dalam menjaga keamanan jaringan.
+
